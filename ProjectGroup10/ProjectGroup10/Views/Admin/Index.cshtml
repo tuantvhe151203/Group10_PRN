@@ -1,0 +1,72 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using ProjectGroup10.Models;
+@model List<Product>
+
+<div class="container">
+        <div class="cart_inner">
+          <div class="table-responsive">
+            <table class="table" border="1">
+              <thead>
+                <tr>
+                  <th scope="col">Product</th>
+                   <th scope="col">Images</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Edit</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                  @foreach (var p in Model)
+                    {   
+                <tr>
+                  <td>
+                    <div class="media">
+                     
+                      <div class="media-body">
+                        <p>@p.ProductName</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                      
+                      <img src="~/images/@p.Image"   
+                         class="rounded-circle"   
+                         height="40" width="40"   
+                         asp-append-version="true" />  
+                    @p.Image  
+                    
+                    
+                </td>  
+                 
+                  <td>
+                    <h5>@p.Price USD</h5>
+                  </td>
+                  
+                  <td>
+                        @if(@p.Status == 1){
+                            <h5>Show</h5>
+                        }
+                        @if(@p.Status == 0){
+                            <h5>Hide</h5>
+                        }
+                        @if(@p.Status == -1){
+                            <h5>Auctioned</h5>
+                        }
+                    
+                  </td>
+                
+                  <td>
+                       <a class="nav-link" asp-controller="Admin" asp-action="Insert" >Add</a>
+                     <a class="nav-link" asp-controller="Admin" asp-action="Update" asp-route-id=@p.ProductId >Edit</a>
+                     <a class="nav-link" asp-controller="Admin" asp-action="Delete" asp-route-id=@p.ProductId >Delete</a>
+                  </td>
+                </tr>
+                
+                }
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>

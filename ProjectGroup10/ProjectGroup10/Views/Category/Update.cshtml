@@ -1,0 +1,58 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using ProjectGroup10.Models;
+@model ProjectGroup10.Models.Category
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Update</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<style>
+    .all{
+        padding: 20px ;
+        margin:auto;
+        width:50%;
+        border: 1px solid;
+        box-shadow: 3px 8px #888888;
+    }
+</style>
+
+<script>
+    function myFunction() {
+        var p = document.getElementById("cate").value;
+        
+        if(p != "")
+            alert("Edit Successful!!!")
+        else if(p == "" ){
+            alert("Something Null! Please insert!!!")
+            location.reload()
+        }
+            
+        else {
+            alert("Eror!!!")
+            location.reload()
+        }
+    }
+</script>
+
+</head>
+<body>
+    <div class="all">
+
+   
+        <form asp-controller="Category" asp-action="Update" method="post">
+           
+            
+            <div class="input-group">
+            <span class="input-group-text">CategoryName</span><input type="text" id='cate' name="CategoryName" class="form-control" value="@ViewBag.Category.CategoryName"/>
+            </div><br/>
+
+           
+
+             <button type="submit" onclick="myFunction()"  class="btn btn-primary">Edit</button>
+
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using ProjectGroup10.Models;
+@model List<Category>
+
+<div class="container">
+        <div class="cart_inner">
+          <div class="table-responsive">
+            <table class="table" border="1">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                   <th scope="col">Name</th>
+               
+                </tr>
+              </thead>
+              <tbody>
+                  @foreach (var p in Model)
+                    {   
+                <tr>
+                  <td>
+                    <div class="media">
+                     
+                      <div class="media-body">
+                        <p>@p.CategoryId</p>
+                      </div>
+                    </div>
+                  </td>
+                 
+                 
+                  <td>
+                    <h5>@p.CategoryName</h5>
+                  </td>
+            
+                
+                  <td>
+                  <a class="nav-link" asp-controller="Category" asp-action="Insert" >Add</a>
+                     <a class="nav-link" asp-controller="Category" asp-action="Update" asp-route-id=@p.CategoryId >Edit</a>
+                     <a class="nav-link" asp-controller="Category" asp-action="Delete" asp-route-id=@p.CategoryId >Delete</a>
+                  </td>
+                </tr>
+                
+             
+                     
+                   }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,2929 @@
+﻿@using Microsoft.AspNetCore.Http
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html xml:lang="en" lang="en">
+<!-- Tieu Long Lanh Kute -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<title>Home page</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" href="~/style/css/style-main.css" rel="stylesheet">
+		<link type="text/css" rel="~/stylesheet" href="http://fonts.googleapis.com/css?family=Sevillana">
+	</head>
+	<body class="home01">
+		<div class="wrapper">
+			<div class="page category-products">
+				<div class="header-container header-container01 header-container03">
+					<div class="header">
+						<div class="container">
+							<div class="row">
+								<div class="header-inner">
+									<div class="col-lg-2 col-sm-6 col-md-6 col-xs-12">
+										<a class="logo" href="index-2.html">
+											<img src="~/images/media/logo-3.png" alt=""/>
+										</a>
+									</div>
+									<div class="wrap-navbar col-lg-8 hide-mobile"> 
+						
+									@RenderBody()
+									
+                                    @{
+                                        var id = Context.Session.GetInt32("userid");
+                                        var idr = Context.Session.GetInt32("roleid");
+                                        var name = Context.Session.GetString("username");
+                                    }
+										<div class="navbar">
+										<ul class="explodedmenu">
+                                    @if (@name == null)
+                                    {
+										 
+										 <li  class="item parentMenu">
+      
+									<a class="nav-link" asp-controller="Login" asp-action="Index">Login</a>
+									</li>
+		
+
+                                        
+                                    }
+                                   
+									   @if(@name != null)
+                                    {
+										
+                                        <li class="item parentMenu">
+                                        <a class="nav-link" asp-controller="Logout" asp-action="Index">Logout</a>
+                                    </li>
+								
+                                    }
+
+
+                                   
+
+                                    
+                                    @if (@idr == 1)
+                                    {
+										                        
+
+                                         <li class="item parentMenu">
+                                            <a class="nav-link" asp-controller="Category" asp-action="Index">Category</a>
+                                        </li>
+                                         <li class="item parentMenu">
+                                            <a class="nav-link" asp-controller="Admin" asp-action="Index">Product</a>
+                                        </li>
+										
+                                    }
+									</div>
+								
+	
+									</div>
+
+                                  
+									<div class="col-lg-2 col-sm-6 col-md-6 col-xs-12">
+										<div class="box-right">
+											<div id="mobile-nav">
+												<button class="btn-sidebar" type="button"><span>menu</span></button> 
+											</div>
+											<div class="box-account-lc box">
+												<span class="account-lc-icon style-icon">icon account</span>
+												<div class="box-inner">
+													<ul class="links">
+														<li class="first"><a class="top-link-myaccount" title="My Account" href="#">My Account</a></li>
+														<li><a class="top-link-wishlist" title="My Wishlist" href="#">My Wishlist</a></li>
+														<li><a class="top-link-checkout" title="Checkout" href="#">Checkout</a></li>
+														<li class="last"><a class="top-link-login" title="Log In" href="#">Log In</a></li>
+													</ul>
+												
+													<div class="block block-language">
+														<div class="lg-cur">
+															<span>Language</span>
+														</div>
+														<ul>
+															<li>
+																<a href="#" class="selected">                    
+																<img alt="flag" src="~/images/flags/flag-default.jpg">
+																<span>English</span>
+																</a>
+															</li>
+															<li>
+																<a href="#">                    
+																<img alt="flag" src="~/images/flags/flag-french.jpg">
+																<span>French</span>
+																</a>
+															</li>
+															<li>
+																<a href="#">                    
+																<img alt="flag" src="~/images/flags/flag-german.jpg">
+																<span>German</span>
+																</a>
+															</li>
+															<li>
+																<a href="#">                    
+																<img alt="flag" src="~/images/flags/flag-brazil.jpg">
+																<span>Brazil</span>
+																</a>
+															</li>
+														</ul>
+													</div>
+													<div class="block block-currency">
+														<div class="item-cur">
+															<span>Currency</span>           
+														</div>
+														<ul>
+															<li>
+																<a href="#"><span class="cur_icon">$</span> EUR</a>
+															</li>
+															<li>
+																<a href="#"><span class="cur_icon">$</span> JPY</a>
+															</li>
+															<li>
+																<a href="#" class="selected"><span class="cur_icon">$</span> USD</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<div class="box-search box">
+												<span class="box-search-icon style-icon">search</span>
+												<div class="advanced-search box-inner">
+													<div class="inner-box">
+														<span class="btn-search-mobile"></span>
+														<span class="search-lbl">Search</span>
+														<form method="get" action="#" id="search_mini_form">
+															<div class="dropdown-cate">
+																<span class="cat-search">All Categories</span>
+																<div class="wrap-scrollbar" style="display: none;">
+																	<div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 200px; height: 200px;">
+																		<div class="scrollbar" style="overflow: hidden; width: 200px; height: 200px;">
+																			<ul>
+																				<li class="level-0">All Categories								
+																				</li>
+																				<li class="level-1">
+																					Default Category										
+																				</li>
+																				<li class="level-2">
+																					Beauty &amp; Perfumes										
+																				</li>
+																			</ul>
+																		</div>
+																		<div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 68.9655px;"></div>
+																		<div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+																	</div>
+																</div>
+															</div>
+															<div class="form-search">
+																<input type="hidden" value="" name="cat" class="cat-value">
+																<input type="text" value="Enter Key Search ..." onblur="if(this.value=='') this.value='Enter Key Search ...';" onfocus="if(this.value=='Enter Key Search ...') this.value='';" class="input-text" name="q" id="search" size="30">							
+																<button class="button form-button" title="Search" type="submit"><span><span>Search</span></span></button>
+																<div class="search-autocomplete" id="search_autocomplete"></div>
+															</div>
+														</form>
+													</div>
+												</div>
+												<!--end box search -->		
+											</div>
+											<div class="block-cart box">
+												<span class="cart-icon style-icon">									
+												<a class="total-item" href="#">1</a>
+												</span>								
+												<div class="block-content box-inner">
+													<div class="inner">
+														<p class="block-subtitle">Recently added item(s)</p>
+														<ol class="mini-products-list" id="cart-sidebar">
+															<li class="item odd">
+																<a class="product-image" href="#">
+																<img width="70" height="84" src="~/images/img-cart.png" alt="">
+																</a>
+																<a class="btn-remove" href="#">X</a>
+																<a class="btn-edit" href="#">Edit</a>
+																<div class="product-details">
+																	<p class="product-name">
+																		<a href="#">Bath Minerals and Salt</a>
+																	</p>
+																	<span class="price">$25.00</span>          
+																	<strong>1</strong> 
+																</div>
+															</li>
+															<li class="item last even">
+																<a class="product-image" href="#">
+																<img width="70" height="84" src="~/images/img-cart1.png" alt="">
+																</a>
+																<a class="btn-remove" href="#">X</a>
+																<a class="btn-edit" href="#">Edit</a>
+																<div class="product-details">
+																	<p class="product-name">
+																		<a href="#">Large Camera Bag</a>
+																	</p>
+																	<span class="price">$20.00</span>                         
+																	<strong>1</strong> 
+																</div>
+															</li>
+														</ol>
+														<div class="summary">
+															<p class="subtotal">
+																<span class="label">Subtotal:</span> 
+																<span class="price">$45.00</span>                                                                        
+															</p>
+														</div>
+														<div class="actions">
+															<div class="a-inner">
+																<a href="#" class="btn-mycart">view my cart</a>
+																<a class="btn-checkout" href="#">Checkout</a>
+															</div>
+														</div>
+													</div>
+													<!--==============================inner cart==============================-->
+												</div>
+												<!--==============================content cart==============================-->
+											</div>
+											<!--==============================end block cart==============================-->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+						<div class="block-video-newletter">
+					@RenderBody()
+					</div>
+					
+
+
+					<div class="banner-mobile hide-des">
+						<a href="#">
+						<img src="~/images/banner/bgvideo.png" alt="">
+						</a>
+					</div>
+				</div>
+				<div class="main-container col1-layout">
+					<div class="main">
+						<div class="wrap-block-cate">
+							<div class="container">
+								<div class="row">
+									<div class="row">
+										<div class="block-categories col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="inner-cate">
+												<div class="wrap_item">
+													<div class="item first">
+														<div class="inner">
+															<a class="cate-img" href="grid.html">
+															<img src="~/images/cate/cate-01.png" alt=""/>                
+															</a>
+															<a class="cate-name" href="#">Tshirt <span>(35)</span></a>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<a class="cate-img" href="grid.html">
+															<img src="~/images/cate/cate-02.png" alt=""/>                
+															</a>
+															<a class="cate-name" href="#">Bags<span>(19)</span></a>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<a class="cate-img" href="grid.html">
+															<img src="~/images/cate/cate-03.png" alt=""/>                
+															</a>
+															<a class="cate-name" href="#">Dresses<span>(23)</span></a>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<a class="cate-img" href="grid.html">
+															<img src="~/images/cate/cate-04.png" alt=""/>                
+															</a>
+															<a class="cate-name" href="#">Glasses<span>(16)</span></a>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<a class="cate-img" href="grid.html">
+															<img src="~/images/cate/cate-05.png" alt=""/>                
+															</a>
+															<a class="cate-name" href="#">Shoes<span>(35)</span></a>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<a class="cate-img" href="grid.html">
+															<img src="~/images/cate/cate-06.png" alt=""/>                
+															</a>
+															<a class="cate-name" href="#">Hat <span>(30)</span></a>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<a class="cate-img" href="grid.html">
+															<img src="~/images/cate/cate-07.png" alt=""/>                
+															</a>
+															<a class="cate-name" href="#">Tshirt <span>(35)</span></a>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<a class="cate-img" href="grid.html">
+															<img src="~/images/cate/cate-08.png" alt=""/>                
+															</a>
+															<a class="cate-name" href="#">Tshirt <span>(35)</span></a>
+														</div>
+													</div>
+												</div>
+												<div class="navslider">
+													<a class="prev" href="#"><span>Prev</span></a>
+													<a class="next" href="#"><span>Next</span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="block-extra">
+							
+							<div class="container">
+							<div class="row">
+						<div class="row">
+						<div class="box-bottom col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="box-extra-slider">
+												<div class="slider-inner">
+													<div class="container-slider">
+														<div class="product-grid">
+
+															//code hien thi
+
+															<div class="wrap_item">
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/13.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+															</div>
+															<div class="wrap_item">
+																<div class="item first">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/14.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/15.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/16.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/17.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/17.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/17.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+															</div>
+															<div class="wrap_item">
+																<div class="item first">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/18.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/15.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/16.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/17.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/17.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a href="#" class="product-image">
+																				<img alt="" src="~/images/photo/17.png"/>
+																				</a>                             
+																				<div class="item-btn">
+																					<div class="btn-wqc">
+																						<a class="link-wishlist" href="#"></a>
+																						<a href="#" class="vt_quickview_handler"><span>Quick View</span></a>
+																						<a class="link-compare" href="#"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a href="detail.html">Cotton Lycra Leggings</a>
+																			</div>
+																			<div class="cate-name">
+																				<a href="#">Men</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:80%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="desc">
+																				Lorem Ipsum has been the<br>
+																				industry's standard dummy text<br>
+																				ever since the 1500s
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<p class="special-price">
+																						<span class="price">$500</span>
+																					</p>
+																					<p class="old-price">
+																						<span class="price">$200</span>
+																					</p>
+																				</div>
+																				<div class="wrap-new-sale">
+																					<div class="sale-item">60%</div>
+																					<div class="new-item">new</div>
+																				</div>
+																			</div>
+																			<button class="btn-cart"><span>Add To Cart</span></button>
+																		</div>
+																	</div>
+																	<!--end inner -->
+																</div>
+																<!--end item -->
+															</div>
+															<!--wrap_item -->
+														</div>
+													
+													</div>
+													<!--end container slider -->
+												</div>
+												<!--end slider-inner -->
+											</div>
+											<!--end box-extra-slider -->
+										</div>
+										<!--end box-bottom -->
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="row">
+									<div class="block-shop-the-look col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="slider-inner">
+											<p class="block-title">
+												<span class="title">Shop the look</span>
+												<a class="pretext" href="#">Show all</a>
+											</p>
+											<div class="container-slider">
+												<div class="wrap_item">
+													<div class="item">
+														<div class="inner">
+															<a href="#">
+															<img alt="" src="~/images/banner/ca-b25.png" />
+															</a>
+															<div class="cate-info">                        
+																<a class="cate-name" href="#">
+																<span class="title">Men</span>
+																<span class="pro-total">25 products</span>
+																</a>
+																<a class="button" href="#">Shop now</a>
+															</div>
+														</div>
+													</div>
+													<!--item-->
+													<div class="item">
+														<div class="inner">
+															<a href="#">
+															<img alt="" src="~/images/banner/ca-b26.png" />
+															</a>
+															<div class="cate-info">                        
+																<a class="cate-name" href="#">
+																<span class="title">Jacket</span>
+																<span class="pro-total">25 products</span>
+																</a>
+																<a class="button" href="#">Shop now</a>
+															</div>
+														</div>
+													</div>
+													<!--item-->
+													<div class="item">
+														<div class="inner">
+															<a href="#">
+															<img alt="" src="~/images/banner/ca-b27.png" />
+															</a>
+															<div class="cate-info">                        
+																<a class="cate-name" href="#">
+																<span class="title">Women</span>
+																<span class="pro-total">25 products</span>
+																</a>
+																<a class="button" href="#">Shop now</a>
+															</div>
+														</div>
+													</div>
+													<!--item-->
+													<div class="item">
+														<div class="inner">
+															<a href="#">
+															<img alt="" src="~/images/banner/ca-b25.png" />
+															</a>
+															<div class="cate-info">                        
+																<a class="cate-name" href="#">
+																<span class="title">Fashion</span>
+																<span class="pro-total">25 products</span>
+																</a>
+																<a class="button" href="#">Shop now</a>
+															</div>
+														</div>
+													</div>
+													<!--item-->
+												</div>
+												<!--wrap_item -->
+												<div class="navslider">
+													<a href="#" class="prev"><span>Prev</span></a>
+													<a href="#" class="next"><span>Next</span></a>
+												</div>
+											</div>
+											<!--end container slider -->
+										</div>
+										<!--end slider-inner -->
+									</div>
+									<!--block-shop-the-look -->
+								</div>
+							</div>
+						</div>
+						<div class="block-trend-now" id="block-trend-now">
+							
+							<div class="container">
+								<div class="row">
+									<div class="row">
+										<div class="box-left tab-item col-lg-5 col-md-5 col-sm-12 col-xs-12">
+											<ul class="box-left-inner">
+												<li class="item i1 active">
+													<a class="inner" data-toggle="tab" href="#item_tab1">
+													<span class="product-image">
+													<img src="~/images/banner/ca-b22.png" alt="">
+													</span>
+													<span class="product-name"><span>Kids</span></span>
+													</a>
+												</li>
+												<li class="item i2">
+													<a class="inner" data-toggle="tab" href="#item_tab2">
+													<span class="product-image">
+													<img src="~/images/banner/ca-b22-01.png" alt="">
+													</span>
+													<span class="product-name"><span>Men</span></span>
+													</a>
+												</li>
+												<li class="item i3">
+													<a class="inner" data-toggle="tab" href="#item_tab3">
+													<span class="product-image">
+													<img src="~/images/banner/ca-b22-02.png" alt="">
+													</span>
+													<span class="product-name"><span>Women</span></span>
+													</a>
+												</li>
+												<li class="item i4">
+													<a class="inner" data-toggle="tab" href="#item_tab4">
+													<span class="product-image">
+													<img src="~/images/banner/ca-b22-03.png" alt="">
+													</span>
+													<span class="product-name"><span>Accesssories</span></span>
+													</a>
+												</li>
+											</ul>
+										</div>
+										<div class="tab-content col-lg-7 col-md-7 col-sm-12 col-xs-12">
+											<div class="tab-pane active" id="item_tab1">
+												<div class="box-trend-now" id="vt_slider4">
+													<div class="slider-inner">
+														<div class="container-slider products-grid">
+															<div class="wrap_item">
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Pearl Strand Necklace-18" href="#" class="product-image">
+																				<img alt="Pearl Strand Necklace-18" src="~/images/photo/14.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Pearl Strand Necklace-18" href="detail.html">Pearl Strand Necklace-...</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:93%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$250.00</span>                                   
+																					</span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button> 
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Pearl Strand Necklace-24" href="#" class="product-image">
+																				<img alt="Pearl Strand Necklace-24" src="~/images/photo/2.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Pearl Strand Necklace-24" href="#">Pearl Strand Necklace-...</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$250.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Blue Horizons Bracelets" href="#" class="product-image">
+																				<img alt="Blue Horizons Bracelets" src="~/images/photo/3.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Blue Horizons Bracelets" href="#">Blue Horizons Bracelets</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$230.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Blue Horizons Bracelets" href="#" class="product-image">
+																				<img alt="Blue Horizons Bracelets" src="~/images/photo/5.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Blue Horizons Bracelets" href="#">Blue Horizons Bracelets</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$230.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!--end wrap_item-->
+															<div class="navslider">
+																<a class="prev" href="#"><span>Prev</span></a>
+																<a class="next" href="#"><span>Next</span></a>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!--end block-trend-now--> 
+											</div>
+											<div class="tab-pane" id="item_tab2">
+												<div class="box-trend-now" id="vt_slider1">
+													<div class="slider-inner">
+														<div class="container-slider products-grid">
+															<div class="wrap_item">
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Pearl Strand Necklace-18" href="#" class="product-image">
+																				<img alt="Pearl Strand Necklace-18" src="~/images/photo/12.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Pearl Strand Necklace-18" href="detail.html">Pearl Strand Necklace-...</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:93%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$250.00</span>                                   
+																					</span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Pearl Strand Necklace-24" href="#" class="product-image">
+																				<img alt="Pearl Strand Necklace-24" src="~/images/photo/11.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Pearl Strand Necklace-24" href="#">Pearl Strand Necklace-...</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$250.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Blue Horizons Bracelets" href="#" class="product-image">
+																				<img alt="Blue Horizons Bracelets" src="~/images/photo/13.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Blue Horizons Bracelets" href="#">Blue Horizons Bracelets</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$230.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Blue Horizons Bracelets" href="#" class="product-image">
+																				<img alt="Blue Horizons Bracelets" src="~/images/photo/10.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Blue Horizons Bracelets" href="#">Blue Horizons Bracelets</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$230.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!--end wrap_item-->
+															<div class="navslider">
+																<a class="prev" href="#"><span>Prev</span></a>
+																<a class="next" href="#"><span>Next</span></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="item_tab3">
+												<div class="box-trend-now" id="vt_slider2">
+													<div class="slider-inner">
+														<div class="container-slider products-grid">
+															<div class="wrap_item">
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Pearl Strand Necklace-18" href="#" class="product-image">
+																				<img alt="Pearl Strand Necklace-18" src="~/images/photo/10.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Pearl Strand Necklace-18" href="detail.html">Pearl Strand Necklace-...</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:93%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$250.00</span>                                   
+																					</span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Pearl Strand Necklace-24" href="#" class="product-image">
+																				<img alt="Pearl Strand Necklace-24" src="~/images/photo/3.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Pearl Strand Necklace-24" href="#">Pearl Strand Necklace-...</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$250.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Blue Horizons Bracelets" href="#" class="product-image">
+																				<img alt="Blue Horizons Bracelets" src="~/images/photo/8.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Blue Horizons Bracelets" href="#">Blue Horizons Bracelets</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$230.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Blue Horizons Bracelets" href="#" class="product-image">
+																				<img alt="Blue Horizons Bracelets" src="~/images/photo/5.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Blue Horizons Bracelets" href="#">Blue Horizons Bracelets</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$230.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!--end wrap_item-->
+															<div class="navslider">
+																<a class="prev" href="#"><span>Prev</span></a>
+																<a class="next" href="#"><span>Next</span></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="item_tab4">
+												<div class="box-trend-now" id="vt_slider3">
+													<div class="slider-inner">
+														<div class="container-slider products-grid">
+															<div class="wrap_item">
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Pearl Strand Necklace-18" href="#" class="product-image">
+																				<img alt="Pearl Strand Necklace-18" src="~/images/photo/14.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Pearl Strand Necklace-18" href="detail.html">Pearl Strand Necklace-...</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:93%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$250.00</span>                                   
+																					</span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Pearl Strand Necklace-24" href="#" class="product-image">
+																				<img alt="Pearl Strand Necklace-24" src="~/images/photo/2.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Pearl Strand Necklace-24" href="#">Pearl Strand Necklace-...</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$250.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Blue Horizons Bracelets" href="#" class="product-image">
+																				<img alt="Blue Horizons Bracelets" src="~/images/photo/3.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Blue Horizons Bracelets" href="#">Blue Horizons Bracelets</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$230.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<div class="item">
+																	<div class="inner">
+																		<div class="item-image">
+																			<div class="item-image-inner">
+																				<a title="Blue Horizons Bracelets" href="#" class="product-image">
+																				<img alt="Blue Horizons Bracelets" src="~/images/photo/5.png">
+																				</a>
+																				<div class="item-btn">
+																					<div class="btn-wqc">										
+																						<a data-original-title="Add to Wishlist" data-placement="left" data-toggle="tooltip" class="link-wishlist" href="#" title="Add to Wishlist"></a>
+																						<span class="tmp">
+																						<a href="#" data-toggle="tooltip" data-placement="left" data-original-title="Quick View" class="vt_quickview_handler"><span>Quick View</span></a></span>
+																						<a data-original-title="Add to Compare" data-placement="left" data-toggle="tooltip" class="link-compare" href="#" title="Add to Compare"></a>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																		<div class="product-info">
+																			<div class="product-name">
+																				<a title="Blue Horizons Bracelets" href="#">Blue Horizons Bracelets</a>
+																			</div>
+																			<div class="cate-name">								
+																				<a href="#">
+																				Corssbody								</a>
+																			</div>
+																			<div class="rating">
+																				<div class="ratings">
+																					<div class="rating-box">
+																						<div style="width:100%" class="rating"></div>
+																					</div>
+																				</div>
+																				<p class="rating-links">
+																					<a href="#">1 (vote)</a>
+																					<span class="separator">|</span>
+																					<a href="#" class="re-temp">Add Review</a>
+																				</p>
+																			</div>
+																			<div class="wrap-ns-price">
+																				<div class="price-box">
+																					<span class="regular-price">
+																					<span class="price">$230.00</span>                                    </span>
+																				</div>
+																				<div class="wrap-new-sale">								
+																				</div>
+																			</div>
+																			<button class="btn-cart" title="Add to Cart"><span>Add to cart</span></button>
+																			<div class="flycart_qty_edit"><a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-left" title="Decrement">down</a>
+																				<input type="text" value="1"  class="input-text qty flycart-qty">
+																				<a href="#" class="flycart-qty-btn flycart-qty-change flycart-qty-change-right" title="Increment">up</a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!--end wrap_item-->
+															<div class="navslider">
+																<a class="prev" href="#"><span>Prev</span></a>
+																<a class="next" href="#"><span>Next</span></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="row">
+									<!--block-shop-the-look --> 
+									<div id="messages_product_view">
+									</div>
+									<div class="lastest-blog col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<p class="block-title">
+											<span class="title">From the blog</span>
+											<a href="#" class="pretext">
+											Show all      </a>
+										</p>
+										<div class="slider-inner">
+											<div class="container-slider">
+												<div class="wrap_item">
+													<div class="item">
+														<div class="inner">
+															<div class="blog-info">
+																<a href="#" class="pro-name">Cupidatat non proident amet co</a>
+																<div class="date-com">
+																	<span class="date-style">Sep 21 2014</span>
+																	<!--<span class="com-style">1 comment</span>-->
+																	<a href="#" class="com-style">
+																	0 Comment  
+																	</a>
+																</div>
+																<div class="desc">
+																	Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt                     
+																</div>
+																<a href="#" class="button">Read more</a>
+															</div>
+															<div class="wrap-image">
+																<a title="Cupidatat non proident amet conse ctetur" href="#" class="blog-image">
+																<img alt="" src="~/images/img-blog9.png">    
+																</a>
+																<a href="#" class="style-bg">
+																<img src="~/images/banner/bg-img-blog.png" alt="">
+																</a>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<div class="blog-info">
+																<a href="#" class="pro-name">Amet conse ctetur adipisicing </a>
+																<div class="date-com">
+																	<span class="date-style">Sep 05 2014</span>
+																	<!--<span class="com-style">1 comment</span>-->
+																	<a href="#" class="com-style">
+																	1 
+																	0 Comment  
+																	</a>
+																</div>
+																<div class="desc">
+																	Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididun                     
+																</div>
+																<a href="#" class="button">Read more</a>
+															</div>
+															<div class="wrap-image">
+																<a title="Amet conse ctetur adipisicing Cupidatat non " href="#" class="blog-image">
+																<img alt="" src="~/images/img-blog8.png">    
+																</a>
+																<a href="#" class="style-bg">
+																<img src="~/images/banner/bg-img-blog.png" alt="">
+																</a>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<div class="blog-info">
+																<a href="#" class="pro-name">Occaecat cupidatat sit amet co</a>
+																<div class="date-com">
+																	<span class="date-style">Sep 05 2014</span>
+																	<!--<span class="com-style">1 comment</span>-->
+																	<a href="#commentBox" class="com-style">
+																	1 
+																	0 Comment  
+																	</a>
+																</div>
+																<div class="desc">
+																	Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididun                     
+																</div>
+																<a href="#" class="button">Read more</a>
+															</div>
+															<div class="wrap-image">
+																<a title="Occaecat cupidatat sit amet conse ctetur adipisicing elit" href="#" class="blog-image">
+																<img alt="" src="~/images/img-blog7.png">    
+																</a>
+																<a href="#" class="style-bg">
+																<img src="~/images/banner/bg-img-blog.png" alt="">
+																</a>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<div class="blog-info">
+																<a href="#" class="pro-name">Rem ipsum dolor sit  ipsum dol</a>
+																<div class="date-com">
+																	<span class="date-style">Sep 05 2014</span>
+																	<!--<span class="com-style">1 comment</span>-->
+																	<a href="#commentBox" class="com-style">
+																	1 
+																	0 Comment  
+																	</a>
+																</div>
+																<div class="desc">
+																	Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididun                     
+																</div>
+																<a href="#" class="button">Read more</a>
+															</div>
+															<div class="wrap-image">
+																<a title="Rem ipsum dolor sit  ipsum dolor sit amet conse ctetur adipisicing elit" href="#" class="blog-image">
+																<img alt="" src="~/images/img-blog6.png">    
+																</a>
+																<a href="#" class="style-bg">
+																<img src="~/images/banner/bg-img-blog.png" alt="">
+																</a>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<div class="blog-info">
+																<a href="#" class="pro-name">Sint occaecat sed do eiusmod t</a>
+																<div class="date-com">
+																	<span class="date-style">Sep 05 2014</span>
+																	<!--<span class="com-style">1 comment</span>-->
+																	<a href="#commentBox" class="com-style">
+																	1 
+																	0 Comment  
+																	</a>
+																</div>
+																<div class="desc">
+																	Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididun                     
+																</div>
+																<a href="#" class="button">Read more</a>
+															</div>
+															<div class="wrap-image">
+																<a title="Sint occaecat sed do eiusmod tempor incididunt" href="#" class="blog-image">
+																<img alt="" src="~/images/img-blog5.png">    
+																</a>
+																<a href="#" class="style-bg">
+																<img src="~/images/banner/bg-img-blog.png" alt="">
+																</a>
+															</div>
+														</div>
+													</div>
+													<div class="item">
+														<div class="inner">
+															<div class="blog-info">
+																<a href="#" class="pro-name">Sed do eiusmod amet conse ctet</a>
+																<div class="date-com">
+																	<span class="date-style">Sep 05 2014</span>
+																	<!--<span class="com-style">1 comment</span>-->
+																	<a href="#commentBox" class="com-style">
+																	1 
+																	0 Comment  
+																	</a>
+																</div>
+																<div class="desc">
+																	Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididun                     
+																</div>
+																<a href="#" class="button">Read more</a>
+															</div>
+															<div class="wrap-image">
+																<a title="Sed do eiusmod amet conse ctetur adipisicing elit, sed do eiusmod tempor" href="#" class="blog-image">
+																<img alt="" src="~/images/img-blog4.png">    
+																</a>
+																<a href="#" class="style-bg">
+																<img src="~/images/banner/bg-img-blog.png" alt="">
+																</a>
+															</div>
+														</div>
+													</div>
+													<!--end item-->
+													<!--end item-->
+													<!--end item-->
+													<!--end item-->
+													<!--end item-->
+													<!--end item-->
+												</div>
+												<!--end wrap_item-->
+												<div class="navslider">
+													<a class="prev" href="#"><span>Prev</span></a>
+													<a class="next" href="#"><span>Next</span></a>
+												</div>
+											</div>
+											<!--end container-slider-->    
+										</div>
+										<!--end slider-inner-->    
+									</div>
+									<!--lastest-blog-->  
+								</div>
+							</div>
+						</div>
+						<div class="box-banner-slider">
+							<div class="slider-inner">
+								<div class="container-slider">
+									<div class="wrap_item">
+										<div class="item">
+											<a href="#" class="item-image">
+											<img alt="" src="~/images/banner/ca-b32.png">
+											</a>
+											<div class="banner-info">
+												<div class="container">
+													<div class="row">
+														<div class="row">
+															<div class="box-inner col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																<p class="title"><span>Micro Bag</span></p>
+																<p class="content">
+																	<span class="p1">MICRO PEEKABOO</span><br>
+																	<span>Lorem Ipsum has been the industry's standard dummy text ever since</span>
+																</p>
+																<p class="group-btn">
+																	<a href="#" class="button">Shop Now</a>
+																	<a href="#" class="button">More Detail</a>
+																</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<a href="#" class="item-image">
+											<img alt="" src="~/images/banner/ca-b33.png">
+											</a>
+											<div class="banner-info">
+												<div class="container">
+													<div class="row">
+														<div class="row">
+															<div class="box-inner">
+																<p class="title"><span>Collection for Men</span></p>
+																<p class="content">
+																	<span class="p1">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has </span><br>
+																	<span class="p2">been the industry's standard dummy text ever since</span>
+																</p>
+																<p class="group-btn">
+																	<a href="#" class="button">Shop Now</a>
+																	<a href="#" class="button">More Detail</a>
+																</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<a href="#" class="item-image">
+											<img alt="" src="~/images/banner/ca-b35.png">
+											</a>
+											<div class="banner-info">
+												<div class="container">
+													<div class="row">
+														<div class="row">
+															<div class="box-inner">
+																<p class="title"><span>Women's Fashion Show</span></p>
+																<p class="content">
+																	<span class="p1">SPRING/SUMMER 2015</span><br>
+																	<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has </span><br>
+																	<!--<span>been the industry's standard dummy text ever since</span>-->
+																</p>
+																<p class="group-btn">
+																	<a href="#" class="button">Shop Now</a>
+																	<a href="#" class="button">More Detail</a>
+																</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<a href="#" class="item-image">
+											<img alt="" src="~/images/banner/ca-b34.png">
+											</a>
+											<div class="banner-info">
+												<div class="container">
+													<div class="row">
+														<div class="row">
+															<div class="box-inner">
+																<p class="title"><span>Shop Accessories</span></p>
+																<p class="content">
+																	<span>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has </span><br>
+																	<span>been the industry's standard dummy text ever since</span>
+																</p>
+																<p class="group-btn">
+																	<a href="#" class="button">Shop Now</a>
+																	<a href="#" class="button">More Detail</a>
+																</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- item -->
+										<!-- item -->
+										<!-- item -->
+										<!-- item -->
+									</div>
+									<!--wrap_item -->
+									<div class="wrap-navslider">
+										<div class="container">
+											<div class="row">
+												<div class="row">
+													<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+														<div class="navslider">
+															<a class="prev" href="#"><span>Prev</span></a>
+															<a class="next" href="#"><span>Next</span></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--end container slider -->
+							</div>
+							<!--end slider-inner -->
+							<div class="list-cate">
+								<div class="container">
+									<div class="row">
+										<div class="row">
+											<div class="inner col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<ul>
+													<li class="actived">
+														<span class="link1" data-index="0">Bag &amp; Shoes</span>
+														<a href="#" class="link2">Collection</a>
+													</li>
+													<li>
+														<span class="link1" data-index="1">Men</span>
+														<a href="#" class="link2">Collection</a>
+													</li>
+													<li>
+														<span class="link1" data-index="2">Women</span>
+														<a href="#" class="link2">Collection</a>
+													</li>
+													<li>
+														<span class="link1 last" data-index="3">Accessories</span>
+														<a href="#" class="link2">Collection</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--end box-banner-slider --> 
+					</div>
+				</div>
+				<div class="footer">
+					<div class="footer-top">
+						<div class="container">
+							<div class="row">
+								<div class="row">
+									<div class="quick-search col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<h2>Quick search</h2>
+										<ul class="link-search">
+											<li><a href="#">#</a></li>
+											<li><a href="#">a</a></li>
+											<li><a href="#">b</a></li>
+											<li><a href="#">c</a></li>
+											<li><a href="#">d</a></li>
+											<li><a href="#">e</a></li>
+											<li><a href="#">f</a></li>
+											<li><a href="#">g</a></li>
+											<li><a href="#">h</a></li>
+											<li><a href="#">i</a></li>
+											<li><a href="#">j</a></li>
+											<li><a href="#">k</a></li>
+											<li><a href="#">l</a></li>
+											<li><a href="#">m</a></li>
+											<li><a href="#">n</a></li>
+											<li><a href="#">o</a></li>
+											<li><a href="#">p</a></li>
+											<li><a href="#">q</a></li>
+											<li><a href="#">r</a></li>
+											<li><a href="#">s</a></li>
+											<li><a href="#">t</a></li>
+											<li><a href="#">u</a></li>
+											<li><a href="#">v</a></li>
+											<li><a href="#">w</a></li>
+											<li><a href="#">x</a></li>
+											<li><a href="#">y</a></li>
+											<li><a href="#">z</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-middle">
+						<div class="container">
+							<div class="row">
+								<div class="row">
+									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+										<div class="block block-explore-canifa">
+											<div class="block-title">
+												<span>Explore Canifa</span>
+											</div>
+											<ul>
+												<li><a href="#">Brands</a></li>
+												<li><a href="#">Clothing</a></li>
+												<li><a href="#">Couture</a></li>
+												<li><a href="#">Eyewear</a></li>
+												<li><a href="#">New Arrivals</a></li>
+												<li><a href="#">Outdoor</a></li>
+												<li><a href="#">Rideshop</a></li>
+												<li><a href="#">Running</a></li>
+												<li><a href="#">Shoes</a></li>
+												<li><a href="#">Watches</a></li>
+												<li><a href="#">Wedding</a></li>
+												<li><a href="#">All Departments</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+										<div class="block block-customer-service">
+											<div class="block-title">
+												<span>Customer Service</span>
+											</div>
+											<ul>
+												<li><a href="#">FAQs</a></li>
+												<li><a href="#">Contact Info</a></li>
+												<li><a href="#">Shipping </a></li>
+												<li><a href="#">Returns</a></li>
+												<li><a href="#">Safe Shopping</a></li>
+												<li><a href="#">Guarantee</a></li>
+												<li><a href="#">Secure Shopping</a></li>
+											</ul>
+											<div class="block-title title-02">
+												<span>Fit Info</span>
+											</div>
+											<ul>
+												<li><a href="#">Measurement Guide</a></li>
+												<li><a href="#">Model Measurements</a></li>
+												<li><a href="#">Size Conversion Chart </a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+										<div class="block block-about-canifa">
+											<div class="block-title">
+												<span>About Canifa</span>
+											</div>
+											<ul>
+												<li><a href="#">About</a></li>
+												<li><a href="#">Jobs</a></li>
+												<li><a href="#">Press Kit</a></li>
+												<li><a href="#">Tours</a></li>
+												<li><a href="#">Customer</a></li>
+												<li><a href="#">Testimonials</a></li>
+												<li><a href="#">Associates</a></li>
+											</ul>
+											<div class="block-title title-02">
+												<span>Feedback</span>
+											</div>
+											<ul>
+												<li><a href="#">How do you like our </a></li>
+												<li><a href="#">website?</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+										<div class="block block-find-us">
+											<div class="block-title">
+												<span>Find Us On Facebook</span>
+											</div>
+											<div class="fanbox-content">
+											<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  ga('create', 'UA-64140250-1', 'auto');ga('send', 'pageview');
+
+	</script>	
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- after title -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:250px;height:200px"
+     data-ad-client="ca-pub-5135189126478533"
+     data-ad-slot="2436788603"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+											</div>
+											<!--==================fanbox-content==================-->
+										</div>
+										<!--==================block-find-us==================-->
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+										<div class="block block-canifa-rewards">
+											<div class="block-title">
+												<span>Canifa  Rewards Visa</span>
+											</div>
+											<ul class="ul01">
+												<li class="box1"><a href="#"><img src="~/images/banner/ca-b36.png" alt=""></a></li>
+												<li class="box2">
+													<span>Get $25 back after<br>
+													your first<br>
+													purchase.
+													</span>
+													<a href="#" class="link">Learn more</a>
+												</li>
+											</ul>
+											<div class="block-title title03">
+												<span class="block-service">Canifa  Stuff</span>
+											</div>
+											<ul class="ul02">
+												<li class="box1"><a href="#"><img src="~/images/banner/ca-b37.png" alt=""></a></li>
+												<li class="box2">
+													<span>Get $25 back after<br>
+													your first<br>
+													purchase.
+													</span>
+													<a href="#" class="link">Learn more</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-bottom">
+						<div class="container">
+							<div class="row">
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<ul class="block-link-footer">
+											<li><a href="#">Terms of Use</a></li>
+											<li><a href="#">Privacy Policy</a></li>
+											<li><a href="#">Fur Policy</a></li>
+											<li><a href="#">Interest-Based Ads</a></li>
+											<li><a href="#">About Us</a></li>
+											<li><a href="#">Contact Us</a></li>
+											<li><span>24/7 Customer Service (84.4) 1678-311160</span></li>
+										</ul>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<ul class="block-payment">
+											<li><a href="#"><img src="~/images/banner/p1.png" alt=""></a></li>
+											<li><a href="#"><img src="~/images/banner/p2.png" alt=""></a></li>
+											<li><a href="#"><img src="~/images/banner/p3.png" alt=""></a></li>
+											<li><a href="#"><img src="~/images/banner/p4.png" alt=""></a></li>
+											<li><a href="#"><img src="~/images/banner/p5.png" alt=""></a></li>
+										</ul>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<p class="info-copy">
+											Canifa &copy; 2015 Magento Demo Store. All Rights Reserved. Designed by <a rel="nofollow" href="http://7uptheme.com/">7-Up</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a title="Go to Top" href="#" id="vt-totop" style="display: inline;"><span>Go to Top</span></a> 
+					<script src="~/js/jquery/jquery.js" type="text/javascript"></script>
+					<script src="~/js/jquery/jquery-noconflict.js" type="text/javascript"></script>
+					<script src="~/js/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+					<script src="~/js/jquery.plugin.js" type="text/javascript"></script>
+					<script src="~/js/TimeCircles.js" type="text/javascript"></script> 
+					<script src="~/js/bootstrap/bootstrap.min.js" type="text/javascript"></script>
+					<script src="~/js/theme.js" type="text/javascript"></script>
+				</div>
+			</div>
+		</div>
+		<div class="block-slidebar">
+			<button class="close-menu" type="button"><span>close menu</span></button>
+			<ul class="nav-menu clearfix">
+				<li class="active">
+					<a title="Home" href="home.html" class="active"><span>Home</span></a>
+				</li>
+				<li class="level0 nav-1 parent">
+					<a href="grid.html" class="">
+					<span>Corssbody</span>
+					</a>
+					<ul class="level0">
+						<li class="level1 nav-1-1 first">
+							<a href="grid.html">
+							<span>New Arrivals</span>
+							</a>
+						</li>
+						<li class="level1 nav-1-2">
+							<a href="grid.html">
+							<span>Tops & Blouses</span>
+							</a>
+						</li>
+						<li class="level1 nav-1-3">
+							<a href="grid.html">
+							<span>Pants & Denim</span>
+							</a>
+						</li>
+						<li class="level1 nav-1-4 last">
+							<a href="grid.html">
+							<span>Dresses & Skirts</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="level0 nav-2 parent">
+					<a href="grid.html" class="">
+					<span>Satchel</span>
+					</a>
+					<ul class="level0">
+						<li class="level1 nav-2-1 first">
+							<a href="grid.html">
+							<span>New Arrivals</span>
+							</a>
+						</li>
+						<li class="level1 nav-2-2">
+							<a href="grid.html">
+							<span>Shirts</span>
+							</a>
+						</li>
+						<li class="level1 nav-2-3">
+							<a href="grid.html">
+							<span>Tees, Knits and Polos</span>
+							</a>
+							<a href="grid.html">
+							<span>Pants &amp; Denim</span>
+							</a>
+						</li>
+						<li class="level1 nav-2-5 last">
+							<a href="grid.html">
+							<span>Blazers</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="level0 nav-3 parent">
+					<a href="grid.html">
+					<span>Totes</span>
+					</a>
+					<ul class="level0">
+						<li class="level1 nav-3-1 first">
+							<a href="grid.html">
+							<span>Eyewear</span>
+							</a>
+						</li>
+						<li class="level1 nav-3-2">
+							<a href="grid.html">
+							<span>Jewelry</span>
+							</a>
+						</li>
+						<li class="level1 nav-3-3">
+							<a href="grid.html">
+							<span>Shoes</span>
+							</a>
+						</li>
+						<li class="level1 nav-3-4 last">
+							<a href="grid.html">
+							<span>Bags & Luggage</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="level0 nav-4 parent">
+					<a href="grid.html">
+					<span>Ladies Wallets</span>
+					</a>
+					<ul class="level0">
+						<li class="level1 nav-4-1 first">
+							<a href="grid.html">
+							<span>Books & Music</span>
+							</a>
+						</li>
+						<li class="level1 nav-4-2">
+							<a href="grid.html">
+							<span>Bed & Bath</span>
+							</a>
+						</li>
+						<li class="level1 nav-4-3">
+							<a href="grid.html">
+							<span>Electronics</span>
+							</a>
+						</li>
+						<li class="level1 nav-4-4 last">
+							<a href="grid.html">
+							<span>Decorative Accents</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="level0 nav-5 parent">
+					<a href="grid.html">
+					<span>Sweatshirts</span>
+					</a>
+					<ul class="level0">
+						<li class="level1 nav-5-1 first">
+							<a href="grid.html">
+							<span>Women</span>
+							</a>
+						</li>
+						<li class="level1 nav-5-2">
+							<a href="grid.html">
+							<span>Men</span>
+							</a>
+						</li>
+						<li class="level1 nav-5-3">
+							<a href="grid.html">
+							<span>Accessories</span>
+							</a>
+						</li>
+						<li class="level1 nav-5-4 last">
+							<a href="grid.html">
+							<span>Home & Decor</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="level0 nav-6">
+					<a href="grid.html">
+					<span>Jackets & Coats</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+<!-- Tieu Long Lanh Kute -->
+</html>

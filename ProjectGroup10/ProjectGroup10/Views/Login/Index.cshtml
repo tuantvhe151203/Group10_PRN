@@ -1,0 +1,59 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using ProjectGroup10.Models;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .returning_customer {
+        margin-left: 200px;
+    }
+
+        .returning_customer p {
+            padding-left: 0px;
+            margin-bottom: 0px;
+        }
+</style>
+
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+            <div class="banner_content d-md-flex justify-content-between align-items-center">
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+<div class="returning_customer">
+
+    <form asp-controller="Login" asp-action="Index" >
+
+
+        <div class="col-md-6 form-group p_star">
+
+            <p class="Loname">Username: </p>
+            <input type="text"
+                   class="form-control"
+                   name="name" />
+
+        </div>
+        <div class="col-md-6 form-group p_star">
+            <p class="Loname">Password: </p>
+            <input type="password"
+                   class="form-control"
+                   name="password" />
+
+        </div>
+        <div class="col-md-12 form-group">
+            <button type="submit" value="submit" class="btn submit_btn">
+                Login
+            </button>
+
+       
+             <p>@ViewBag.Map</p>
+
+
+        </div>
+    </form>
+</div>
